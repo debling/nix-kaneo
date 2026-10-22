@@ -1,0 +1,45 @@
+{
+  "nodes": {
+    "kaneo": {
+      "flake": false,
+      "locked": {
+        "lastModified": 1791844941,
+        "narHash": "sha256-J2WrsSmFvfEuHfEfxH1yMpNBBxwJJb7e45mb/bH5A/c=",
+        "owner": "usekaneo",
+        "repo": "kaneo",
+        "rev": "46ef6f78da1f0c9630d88c56f1686ebfc8de7beb",
+        "type": "github"
+      },
+      "original": {
+        "owner": "usekaneo",
+        "ref": "v2.46.2",
+        "repo": "kaneo",
+        "type": "github"
+      }
+    },
+    "nixpkgs": {
+      "locked": {
+        "lastModified": 1791956154,
+        "narHash": "sha256-jBYGPi4udQ9uo4KQp9m2J0546nJVQitG15gvZSaVVAs=",
+        "owner": "NixOS",
+        "repo": "nixpkgs",
+        "rev": "55bfb4d7437bd4e09ab7cba58a43bd68eb310044",
+        "type": "github"
+      },
+      "original": {
+        "owner": "NixOS",
+        "ref": "nixos-unstable",
+        "repo": "nixpkgs",
+        "type": "github"
+      }
+    },
+    "root": {
+      "inputs": {
+        "kaneo": "kaneo",
+        "nixpkgs": "nixpkgs"
+      }
+    }
+  },
+  "root": "root",
+  "version": 7
+}
