@@ -58,6 +58,8 @@ stdenv.mkDerivation {
     R=$out/lib/kaneo-api
     mkdir -p $R/apps/api $R/packages
     cp package.json pnpm-workspace.yaml pnpm-lock.yaml $R/
+    # Since v2.48.0 the workspace declares patchedDependencies;
+    cp -r patches $R/
     cp apps/api/package.json $R/apps/api/
     for pkg in email permissions importers mcp; do
       mkdir -p "$R/packages/$pkg"

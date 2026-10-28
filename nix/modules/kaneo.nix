@@ -82,7 +82,9 @@ let
         cp ${cfg.package.web}/share/kaneo/web-env/env.sh env.sh
         cp ${cfg.package.web}/share/kaneo/web-env/env.awk env.awk
         substituteInPlace env.sh --replace-fail /usr/share/nginx/html "$web"
+        substituteInPlace env.sh --replace-fail /var/lib/kaneo "$PWD/kaneo-state"
         sh env.sh
+        cp -R --no-preserve=mode "$PWD/kaneo-state/html/." "$web/"
       '';
 
   # Proxy header block from apps/web/nginx.kaneo.conf — upstream strips

@@ -16,5 +16,5 @@ fetchPnpmDeps {
   # Pin the major: guards against store-format breakage on nixpkgs bumps.
   pnpm = pnpm_10;
   fetcherVersion = 4;
-  hash = "sha256-x3Mz7oC3XZOaKKWSSIc3Qcr/nh+hZ4oay7aFSuExPzU=";
+  hash = "sha256-Vc9UoplaxPEJuJ5bl++1e8hNvzjsdzo6ho+CjBxRtq4=";
 }
