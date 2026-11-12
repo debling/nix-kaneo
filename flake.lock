@@ -3,27 +3,27 @@
     "kaneo": {
       "flake": false,
       "locked": {
-        "lastModified": 1793046562,
-        "narHash": "sha256-b1swu9vezmNzoNOC934gA1mvKsxRwegjgiFyiRbYDck=",
+        "lastModified": 1793645892,
+        "narHash": "sha256-shlYAggELRQkYAYDNB3us1uA1Ng5Be+Q9k1lsY1yIXo=",
         "owner": "usekaneo",
         "repo": "kaneo",
-        "rev": "2c353877c7a491c5be3ba133897002c299ad47a0",
+        "rev": "e0ebc61748654f4e33e713dcb441be726ec1cfc4",
         "type": "github"
       },
       "original": {
         "owner": "usekaneo",
-        "ref": "v2.48.0",
+        "ref": "v2.49.0",
         "repo": "kaneo",
         "type": "github"
       }
     },
     "nixpkgs": {
       "locked": {
-        "lastModified": 1791956154,
-        "narHash": "sha256-jBYGPi4udQ9uo4KQp9m2J0546nJVQitG15gvZSaVVAs=",
+        "lastModified": 1793540411,
+        "narHash": "sha256-fiPJ88izTVucjeo2EQ3jk4aWmLg03I1D4vxnX2QjEgE=",
         "owner": "NixOS",
         "repo": "nixpkgs",
-        "rev": "55bfb4d7437bd4e09ab7cba58a43bd68eb310044",
+        "rev": "0bb2eedc20e4739f29e8045034f2828ad7054f8f",
         "type": "github"
       },
       "original": {

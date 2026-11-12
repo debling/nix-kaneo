@@ -1,20 +1,12 @@
-# Offline pre-fetch of the Kaneo JS workspace dependencies (FOD) — one
-# shared store for both packages (same pnpm 10 lockfile); its hash tracks
-# the lockfile, not the app sources.
-#
-# ON A KANEO BUMP: set hash to lib.fakeHash, run
-#   nix build .#kaneo-pnpm-deps
-# and copy the `got:` hash from the mismatch error back here.
 {
   fetchPnpmDeps,
-  pnpm_10,
+  pnpm_12,
   kaneo,
 }:
 fetchPnpmDeps {
   pname = "kaneo-pnpm-deps";
   src = kaneo;
-  # Pin the major: guards against store-format breakage on nixpkgs bumps.
-  pnpm = pnpm_10;
+  pnpm = pnpm_12;
   fetcherVersion = 4;
-  hash = "sha256-Vc9UoplaxPEJuJ5bl++1e8hNvzjsdzo6ho+CjBxRtq4=";
+  hash = "sha256-9iIqkS7FIMZfI3gVmM7UaPcEo2DunLHoPwaUTxWEl3I=";
 }

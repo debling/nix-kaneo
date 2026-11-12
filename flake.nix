@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    kaneo.url = "github:usekaneo/kaneo/v2.48.0";
+    kaneo.url = "github:usekaneo/kaneo/v2.49.0";
     kaneo.flake = false;
   };
 
@@ -29,22 +29,25 @@
         system:
         let
           pkgs = pkgsFor system;
-          inherit (pkgs) callPackage;
-          kaneo-pnpm-deps = callPackage ./nix/packages/pnpm-deps.nix { inherit kaneo; };
+
+          kaneo-pnpm-deps = pkgs.callPackage ./nix/packages/pnpm-deps.nix {
+            inherit kaneo;
+          };
         in
         {
           inherit kaneo-pnpm-deps;
-          kaneo-api = callPackage ./nix/packages/api.nix {
+
+          kaneo-api = pkgs.callPackage ./nix/packages/api.nix {
             inherit kaneo kaneo-pnpm-deps;
             version = kaneoVersion;
           };
-          kaneo-web = callPackage ./nix/packages/web.nix {
+          kaneo-web = pkgs.callPackage ./nix/packages/web.nix {
             inherit kaneo kaneo-pnpm-deps;
             version = kaneoVersion;
           };
 
-          kaneo-vm = pkgs.writeShellScriptBin "kaneo-vm" ''
-            exec ${self.nixosConfigurations.kaneo-vm.config.system.build.vm}/bin/run-nixos-vm \
+          demo-vm = pkgs.writeShellScriptBin "demo-vm" ''
+            exec ${self.nixosConfigurations.demo-vm.config.system.build.vm}/bin/run-nixos-vm \
               -display none -serial stdio -monitor none
           '';
         }
@@ -61,7 +64,7 @@
             self.packages.${pkgs.stdenv.hostPlatform.system}.kaneo-web;
       };
 
-      nixosConfigurations.kaneo-vm = nixpkgs.lib.nixosSystem {
+      nixosConfigurations.demo-vm = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
           self.nixosModules.default

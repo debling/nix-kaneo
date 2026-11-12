@@ -113,24 +113,7 @@ services.kaneo.environment = {
 };
 ```
 
-## Demo VM / dev
+## Try it out with a nix vm!
 
-`nix run .#kaneo-vm` — demo VM at http://localhost:8080, serial console
+`nix run github:debling/nix-kaneo#demo-vm`, demo VM at http://localhost:8080, serial console
 on stdout, Ctrl-C stops.
-
-```bash
-nix build .#kaneo-api .#kaneo-web              # packages
-nix build .#checks.x86_64-linux.kaneo-vm-test  # e2e VM test (long)
-nix flake check --no-build                     # eval-time sanity
-nix fmt                                        # format
-```
-
-## Updating
-
-1. Bump the `kaneo` input (`nix flake update kaneo`).
-2. Re-hash `kaneo-pnpm-deps`: `hash = lib.fakeHash` → `nix build
-   .#kaneo-pnpm-deps` → paste the `got:` hash.
-3. Rebuild, re-run the VM test.
-4. Re-check the upstream contract (Dockerfile stages, `env.sh`/`env.awk`
-   placeholders, `nginx.kaneo.conf` routes, env vars, `*_FILE` support)
-   and fix divergences here.

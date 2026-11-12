@@ -7,7 +7,7 @@
   lib,
   stdenv,
   nodejs_24,
-  pnpm_10,
+  pnpm_12,
   pnpmConfigHook,
   version,
   kaneo,
@@ -21,7 +21,7 @@ stdenv.mkDerivation {
 
   nativeBuildInputs = [
     nodejs_24
-    pnpm_10
+    pnpm_12
     pnpmConfigHook
   ];
 
