@@ -14,6 +14,15 @@ stdenv.mkDerivation {
   inherit version;
   src = kaneo;
   pnpmDeps = kaneo-pnpm-deps;
+  # Configure installs only these importers' dev trees. The prod
+  # materialization in installPhase keeps its own explicit --filter list.
+  pnpmWorkspaces = [
+    "@kaneo/api"
+    "@kaneo/email"
+    "@kaneo/permissions"
+    "@kaneo/importers"
+    "@kaneo/mcp"
+  ];
 
   nativeBuildInputs = [
     nodejs_24
@@ -23,6 +32,10 @@ stdenv.mkDerivation {
   ];
 
   env.NODE_OPTIONS = "--max-old-space-size=8192";
+
+  # Pure-JS output: nothing to strip, no ELF to patch. The default
+  # stripPhase walks the whole 483 MB tree for no gain.
+  dontStrip = true;
 
   # Upstream binds every interface on the hardcoded port (no HOST env
   # exists). nginx is this module's only front door, so bind loopback
@@ -34,10 +47,6 @@ stdenv.mkDerivation {
 
   buildPhase = ''
     runHook preBuild
-    for ws in email permissions importers mcp; do
-      echo "Building packages/$ws"
-      ( cd "packages/$ws" && pnpm build )
-    done
     echo "Building apps/api"
     ( cd apps/api && pnpm build )
     runHook postBuild

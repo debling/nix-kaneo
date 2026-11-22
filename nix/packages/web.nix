@@ -18,6 +18,13 @@ stdenv.mkDerivation {
   inherit version;
   src = kaneo;
   pnpmDeps = kaneo-pnpm-deps;
+  # Configure installs only these importers' dev trees.
+  pnpmWorkspaces = [
+    "@kaneo/web"
+    "@kaneo/permissions"
+    "@kaneo/editor"
+    "@kaneo/libs"
+  ];
 
   nativeBuildInputs = [
     nodejs_24
@@ -29,8 +36,6 @@ stdenv.mkDerivation {
 
   buildPhase = ''
     runHook preBuild
-    echo "Building packages/permissions"
-    ( cd packages/permissions && pnpm build )
     echo "Building apps/web"
     ( cd apps/web && pnpm build )
     find apps/web/dist -type f -name '*.map' -delete
