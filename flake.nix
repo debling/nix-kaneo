@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-unstable";
 
-    kaneo.url = "github:usekaneo/kaneo/v2.49.0";
+    kaneo.url = "github:usekaneo/kaneo/v2.50.0";
     kaneo.flake = false;
   };
 

@@ -8,5 +8,5 @@ fetchPnpmDeps {
   src = kaneo;
   pnpm = pnpm_12;
   fetcherVersion = 4;
-  hash = "sha256-9iIqkS7FIMZfI3gVmM7UaPcEo2DunLHoPwaUTxWEl3I=";
+  hash = "sha256-idf9VBfFeDnDtM5+PvRT3yhB/5tNCQCWKlgXvfiM33Q=";
 }

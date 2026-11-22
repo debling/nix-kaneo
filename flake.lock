@@ -3,16 +3,16 @@
     "kaneo": {
       "flake": false,
       "locked": {
-        "lastModified": 1793645892,
-        "narHash": "sha256-shlYAggELRQkYAYDNB3us1uA1Ng5Be+Q9k1lsY1yIXo=",
+        "lastModified": 1795066626,
+        "narHash": "sha256-lh6h21tFwI2OhcOMX45zRyfhCuH/2qwLPsA9MOGHozA=",
         "owner": "usekaneo",
         "repo": "kaneo",
-        "rev": "e0ebc61748654f4e33e713dcb441be726ec1cfc4",
+        "rev": "9424083b60ad08b39d31f105ffb8264e048fe4b9",
         "type": "github"
       },
       "original": {
         "owner": "usekaneo",
-        "ref": "v2.49.0",
+        "ref": "v2.50.0",
         "repo": "kaneo",
         "type": "github"
       }
